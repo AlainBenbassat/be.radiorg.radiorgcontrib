@@ -9,20 +9,10 @@ function radiorgcontrib_civicrm_buildForm($formName, &$form) {
 
     // get the amount
     $amount = CRM_Utils_Request::retrieve('bedrag', 'Integer');
+    //$amount = CRM_Utils_Array::value('bedrag', $_GET);
+
     if ($amount) {
-      if ($amount == 20) {
-        $defaults['price_2'] = '1';
-      }
-      elseif ($amount == 40) {
-        $defaults['price_2'] = '2';
-      }
-      elseif ($amount == 100) {
-        $defaults['price_2'] = '3';
-      }
-      else {
-        $defaults['price_2'] = '0';
-        $defaults['price_3'] = $amount;
-      }
+      $defaults['price_6'] = $amount;
     }
 
     $form->setDefaults($defaults);
